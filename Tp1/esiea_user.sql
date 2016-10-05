@@ -13,7 +13,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `jeux_video`
+-- Structure de la table `esiea_user`
 --
 
 CREATE TABLE IF NOT EXISTS `esiea_user` (
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `esiea_user` (
 ) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=51 ;
 
 --
--- Contenu de la table `jeux_video`
+-- Contenu de la table `esiea_user`
 --
 
 INSERT INTO `esiea_user` (`ID`, `name`, `firstname`, `city`, `old`, `section`, `other`) VALUES
