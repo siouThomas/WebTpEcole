@@ -15,18 +15,19 @@
         <?php
         
 
-        $bdd = new mysqli('localhost', 'root', '', 'mydb');
+        $bdd = new mysqli('localhost', 'root', '', 'mydb');//Connexion à la base de données avec le user boot et à la database mydb
         if ($mysqli->connect_errno) {
 
             echo "error mysqli";
         }
         
         //Contenu
-        $result = $bdd->query('SELECT * FROM esiea_user');
+        $result = $bdd->query('SELECT * FROM esiea_user');//Récupération de données dans la table esiea_user
 
         while ($donnees = $result->fetch_assoc())
         {
-        ?>
+            //Affichage des données pour chaque user de la table esiea_user
+        ?> 
             <p>
             <strong>Personne </strong> : <?php echo $donnees['name']; echo " "; echo $donnees['first_name']; ?><br />
             est en section : <?php echo $donnees['section']; ?>, dans la ville  <?php echo $donnees['city']; ?> !<br />
@@ -36,7 +37,7 @@
         <?php
         }
 
-        //Fermeture de la transction
+        //Fermeture de la transaction
         //$reponse->closeCursor(); 
         ?>
 
