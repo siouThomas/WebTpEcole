@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
     <head>
         <meta CHARSET="utf-8">
-        <title>UX Etape 1,2,3</title>
+        <title>Tp 1 test de perf PHP</title>
         
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -11,26 +11,25 @@
     </head>
 
     <body>
-
+        <h1>MODE PHP - BDD </h1>
         <?php
-        try
-        {
-            // Bdd Connexion
-            $bdd = new PDO('mysql:host=localhost;dbname=LABDDNAMEANTOINEICI;charset=utf8', 'USERICIIII', 'LEMDPANTOINE');
-        }
-        catch(Exception $e)
-        {
-                die('Erreur : '.$e->getMessage());
+        
+
+        $bdd = new mysqli('localhost', 'root', '', 'mydb');//Connexion à la base de données avec le user boot et à la database mydb
+        if ($mysqli->connect_errno) {
+
+            echo "error mysqli";
         }
         
         //Contenu
-        $reponse = $bdd->query('SELECT * FROM esiea_user');
+        $result = $bdd->query('SELECT * FROM esiea_user');//Récupération de données dans la table esiea_user
 
-        while ($donnees = $reponse->fetch())
+        while ($donnees = $result->fetch_assoc())
         {
-        ?>
+            //Affichage des données pour chaque user de la table esiea_user
+        ?> 
             <p>
-            <strong>Personne </strong> : <?php echo $donnees['name']; echo $donnees['firstname']; ?><br />
+            <strong>Personne </strong> : <?php echo $donnees['name']; echo " "; echo $donnees['first_name']; ?><br />
             est en section : <?php echo $donnees['section']; ?>, dans la ville  <?php echo $donnees['city']; ?> !<br />
             <em><?php echo $donnees['other']; ?></em>
            </p>
@@ -38,10 +37,10 @@
         <?php
         }
 
-        //Fermeture de la transction
-        $reponse->closeCursor(); 
+        //Fermeture de la transaction
+        //$reponse->closeCursor(); 
         ?>
 
-        <h1> Vous avez assisté à une prise de data sur bdd </h1>
+        <p> Vous avez assisté à une prise de data sur bdd Maria via un script PHP</p>
     </body>
 </html>
