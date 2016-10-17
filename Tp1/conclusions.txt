@@ -1,0 +1,3 @@
+Php ça marche bien dans certaines limites
+Apache est limité a 220 thread par défaut, d'ou la perte de performance brute
+Java économise les ressources dés le début, ce qui le rends moins performant lorsque peu d'utilisateurs sont connectés simulatanément, mais lui permet de mieux répartir les ressources dans le temps en cas de forte concurrence, le rendant plus performant (par rapport au php) lorsque beaucoup d'utilisateurs sont connectés. 
